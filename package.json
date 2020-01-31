@@ -1,0 +1,17 @@
+{
+  "name": "spotify-prompt",
+  "version": "1.0.0",
+  "description": "challenge: write a program that outputs the largest unique set of characters that can be removed from this paragraph without letting its length drop below 50.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jest"
+  },
+  "author": "valmassoi",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/preset-env": "^7.8.4",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0"
+  }
+}
