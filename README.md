@@ -19,4 +19,6 @@ $ PARAGRAPH='If you want to jumpstart the process of talking to us about this ro
 ## Run tests
 ```bash
 $ yarn test
+# or
+$ yarn test:watch
 ```
