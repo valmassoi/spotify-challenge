@@ -43,8 +43,10 @@ export const sortByCount = (countOfEachChar) => {
  * @return {array} uniqCharsToRemove largest unique set of characters that can be removed from this paragraph without letting its length drop below the minLength, answer to the prompt
  */
 export const app = (paragraph, minLength = 50, caseSensitive = true) => {
+  console.log('Running app!', { paragraph, caseSensitive, minLength});
   const uniqCharsToRemove = [];
   if (!paragraph || paragraph.length <= minLength) {
+    console.log('Result:', uniqCharsToRemove);
     return uniqCharsToRemove; // empty array, nothing to remove
   }
   const countOfEachChar = buildCharacterCount(paragraph, caseSensitive);
@@ -58,5 +60,8 @@ export const app = (paragraph, minLength = 50, caseSensitive = true) => {
     indexToRemove++;
     amountRemoved += amountBeingRemoved;
   }
+  console.log('Result:', uniqCharsToRemove);
   return uniqCharsToRemove;
 };
+
+app(process.env.PARAGRAPH, process.env.MIN, process.env.CASE_SENSITIVE ? process.env.CASE_SENSITIVE === 'true' : undefined);
