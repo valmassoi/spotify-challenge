@@ -49,5 +49,12 @@ describe('spotify challenge', () => {
     it('returns empty array if the minLength is less than or equal paragraph length', () => {
       expect(app('Hey!', 4)).toEqual([]);
     });
+    // THE MAIN EVENT
+    it('removes lower count characters first (leave the "l"s)', () => {
+      expect(app('Hello World!', 3, true)).toEqual(['H', 'e', ' ', 'W', 'r', 'd', '!', 'o']);
+    })
+    it('using the prompt paragraph, number of uniq characters that can be removed (array is long, shorter test above)', () => {
+      expect(app(promptParagraph, 50, true).length).toEqual(31);
+    })
   });
 });
