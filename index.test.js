@@ -53,6 +53,17 @@ describe('spotify challenge', () => {
     it('removes lower count characters first (leave the "l"s)', () => {
       expect(app('Hello World!', 3, true)).toEqual(['H', 'e', ' ', 'W', 'r', 'd', '!', 'o']);
     })
+    it('doesnt drop below min', () => {
+      const min = 3
+      let string = 'Hello World!'
+      const arrayOfCharToRemove = app(string, min, true)
+      arrayOfCharToRemove.forEach(char => {
+        const reg = new RegExp(char, "g");
+        string = string.replace(reg, '');
+        return;
+      })
+      expect(string.length).toEqual(min);
+    })
     it('using the prompt paragraph, number of uniq characters that can be removed (array is long, shorter test above)', () => {
       expect(app(promptParagraph, 50, true).length).toEqual(31);
     })
