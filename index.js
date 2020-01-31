@@ -23,7 +23,7 @@ export const buildCharacterCount = (paragraph, caseSensitive) => {
  * we want the most uniq. chars to be removed
  * we want the most uniq. chars to be removed
  * @param {object} countOfEachChar 
- * @return {array<object>}
+ * @return {array<object>} sorted array of objects
  */
 export const sortByCount = (countOfEachChar) => {
   let array = [];
@@ -44,7 +44,7 @@ export const sortByCount = (countOfEachChar) => {
  */
 export const app = (paragraph, minLength = 50, caseSensitive = true) => {
   const uniqCharsToRemove = [];
-  if (!paragraph || minLength <= paragraph.length) {
+  if (!paragraph || paragraph.length <= minLength) {
     return uniqCharsToRemove; // empty array, nothing to remove
   }
   const countOfEachChar = buildCharacterCount(paragraph, caseSensitive);
