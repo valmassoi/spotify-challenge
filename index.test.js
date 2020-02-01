@@ -40,8 +40,8 @@ describe('spotify challenge', () => {
         { character: 'h', count: 2 },
         { character: '!', count: 5 },
       ]);
-    })
-  })
+    });
+  });
   describe('app', () => {
     it('returns empty array with no supplied paragraph', () => {
       expect(app('')).toEqual([]);
@@ -52,20 +52,20 @@ describe('spotify challenge', () => {
     // THE MAIN EVENT
     it('removes lower count characters first (leave the "l"s)', () => {
       expect(app('Hello World!', 3, true)).toEqual(['H', 'e', ' ', 'W', 'r', 'd', '!', 'o']);
-    })
+    });
     it('doesnt drop below min', () => {
       const min = 2;
       let string = 'hey there';
-      const arrayOfCharToRemove = app(string, min, true)
+      const arrayOfCharToRemove = app(string, min, true);
       arrayOfCharToRemove.forEach(char => {
-        const reg = new RegExp(char, "g");
+        const reg = new RegExp(char, "g"); // warning, doesnt escape special chars
         string = string.replace(reg, '');
         return;
-      })
+      });
       expect(string.length).toEqual(3); // cant remove the last 3 "e"s
-    })
+    });
     it('using the prompt paragraph, number of uniq characters that can be removed (array is long, shorter test above)', () => {
       expect(app(promptParagraph, 50, true).length).toEqual(30);
-    })
+    });
   });
 });

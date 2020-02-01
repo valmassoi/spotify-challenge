@@ -22,6 +22,7 @@ export const buildCharacterCount = (paragraph, caseSensitive) => {
 /**
  * we want the most uniq. chars to be removed
  * more total can be removed if less are removed at a time
+ * so this func sorts by lowest count chars first
  * @param {object} countOfEachChar 
  * @return {array<object>} sorted array of objects
  */
